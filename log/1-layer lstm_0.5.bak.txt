@@ -1,0 +1,101 @@
+Epoch 1/50
+24s - loss: 0.0590 - mean_absolute_error: 0.2010 - keras_pearsonr: 0.3511 - val_loss: 0.0455 - val_mean_absolute_error: 0.1759 - val_keras_pearsonr: 0.3259
+Epoch 2/50
+23s - loss: 0.0460 - mean_absolute_error: 0.1752 - keras_pearsonr: 0.5500 - val_loss: 0.0398 - val_mean_absolute_error: 0.1633 - val_keras_pearsonr: 0.3881
+Epoch 3/50
+22s - loss: 0.0424 - mean_absolute_error: 0.1676 - keras_pearsonr: 0.5989 - val_loss: 0.0390 - val_mean_absolute_error: 0.1618 - val_keras_pearsonr: 0.4064
+Epoch 4/50
+22s - loss: 0.0399 - mean_absolute_error: 0.1617 - keras_pearsonr: 0.6293 - val_loss: 0.0437 - val_mean_absolute_error: 0.1677 - val_keras_pearsonr: 0.4205
+Epoch 5/50
+23s - loss: 0.0385 - mean_absolute_error: 0.1586 - keras_pearsonr: 0.6406 - val_loss: 0.0453 - val_mean_absolute_error: 0.1719 - val_keras_pearsonr: 0.4106
+Epoch 6/50
+22s - loss: 0.0377 - mean_absolute_error: 0.1565 - keras_pearsonr: 0.6501 - val_loss: 0.0351 - val_mean_absolute_error: 0.1527 - val_keras_pearsonr: 0.4292
+Epoch 7/50
+22s - loss: 0.0364 - mean_absolute_error: 0.1540 - keras_pearsonr: 0.6609 - val_loss: 0.0347 - val_mean_absolute_error: 0.1505 - val_keras_pearsonr: 0.4281
+Epoch 8/50
+23s - loss: 0.0361 - mean_absolute_error: 0.1528 - keras_pearsonr: 0.6655 - val_loss: 0.0347 - val_mean_absolute_error: 0.1509 - val_keras_pearsonr: 0.4290
+Epoch 9/50
+22s - loss: 0.0354 - mean_absolute_error: 0.1513 - keras_pearsonr: 0.6739 - val_loss: 0.0386 - val_mean_absolute_error: 0.1570 - val_keras_pearsonr: 0.4309
+Epoch 10/50
+22s - loss: 0.0349 - mean_absolute_error: 0.1493 - keras_pearsonr: 0.6813 - val_loss: 0.0357 - val_mean_absolute_error: 0.1525 - val_keras_pearsonr: 0.4383
+Epoch 11/50
+22s - loss: 0.0344 - mean_absolute_error: 0.1487 - keras_pearsonr: 0.6840 - val_loss: 0.0355 - val_mean_absolute_error: 0.1526 - val_keras_pearsonr: 0.4353
+Epoch 12/50
+22s - loss: 0.0345 - mean_absolute_error: 0.1486 - keras_pearsonr: 0.6860 - val_loss: 0.0337 - val_mean_absolute_error: 0.1487 - val_keras_pearsonr: 0.4445
+Epoch 13/50
+22s - loss: 0.0334 - mean_absolute_error: 0.1459 - keras_pearsonr: 0.6922 - val_loss: 0.0336 - val_mean_absolute_error: 0.1484 - val_keras_pearsonr: 0.4445
+Epoch 14/50
+22s - loss: 0.0335 - mean_absolute_error: 0.1462 - keras_pearsonr: 0.6966 - val_loss: 0.0342 - val_mean_absolute_error: 0.1492 - val_keras_pearsonr: 0.4415
+Epoch 15/50
+23s - loss: 0.0326 - mean_absolute_error: 0.1444 - keras_pearsonr: 0.7028 - val_loss: 0.0333 - val_mean_absolute_error: 0.1477 - val_keras_pearsonr: 0.4527
+Epoch 16/50
+23s - loss: 0.0323 - mean_absolute_error: 0.1434 - keras_pearsonr: 0.7077 - val_loss: 0.0329 - val_mean_absolute_error: 0.1471 - val_keras_pearsonr: 0.4546
+Epoch 17/50
+23s - loss: 0.0317 - mean_absolute_error: 0.1417 - keras_pearsonr: 0.7121 - val_loss: 0.0336 - val_mean_absolute_error: 0.1475 - val_keras_pearsonr: 0.4562
+Epoch 18/50
+23s - loss: 0.0322 - mean_absolute_error: 0.1433 - keras_pearsonr: 0.7110 - val_loss: 0.0326 - val_mean_absolute_error: 0.1458 - val_keras_pearsonr: 0.4569
+Epoch 19/50
+23s - loss: 0.0312 - mean_absolute_error: 0.1410 - keras_pearsonr: 0.7206 - val_loss: 0.0335 - val_mean_absolute_error: 0.1467 - val_keras_pearsonr: 0.4576
+Epoch 20/50
+23s - loss: 0.0309 - mean_absolute_error: 0.1403 - keras_pearsonr: 0.7220 - val_loss: 0.0324 - val_mean_absolute_error: 0.1430 - val_keras_pearsonr: 0.4593
+Epoch 21/50
+23s - loss: 0.0309 - mean_absolute_error: 0.1402 - keras_pearsonr: 0.7253 - val_loss: 0.0320 - val_mean_absolute_error: 0.1436 - val_keras_pearsonr: 0.4662
+Epoch 22/50
+23s - loss: 0.0305 - mean_absolute_error: 0.1392 - keras_pearsonr: 0.7250 - val_loss: 0.0320 - val_mean_absolute_error: 0.1418 - val_keras_pearsonr: 0.4662
+Epoch 23/50
+23s - loss: 0.0302 - mean_absolute_error: 0.1379 - keras_pearsonr: 0.7311 - val_loss: 0.0321 - val_mean_absolute_error: 0.1341 - val_keras_pearsonr: 0.4630
+Epoch 24/50
+23s - loss: 0.0299 - mean_absolute_error: 0.1378 - keras_pearsonr: 0.7366 - val_loss: 0.0320 - val_mean_absolute_error: 0.1335 - val_keras_pearsonr: 0.4724
+Epoch 25/50
+24s - loss: 0.0296 - mean_absolute_error: 0.1368 - keras_pearsonr: 0.7381 - val_loss: 0.0321 - val_mean_absolute_error: 0.1330 - val_keras_pearsonr: 0.4693
+Epoch 26/50
+23s - loss: 0.0293 - mean_absolute_error: 0.1359 - keras_pearsonr: 0.7377 - val_loss: 0.0345 - val_mean_absolute_error: 0.1370 - val_keras_pearsonr: 0.4725
+Epoch 27/50
+22s - loss: 0.0284 - mean_absolute_error: 0.1339 - keras_pearsonr: 0.7472 - val_loss: 0.0328 - val_mean_absolute_error: 0.1344 - val_keras_pearsonr: 0.4695
+Epoch 28/50
+23s - loss: 0.0283 - mean_absolute_error: 0.1337 - keras_pearsonr: 0.7479 - val_loss: 0.0315 - val_mean_absolute_error: 0.1326 - val_keras_pearsonr: 0.4705
+Epoch 29/50
+22s - loss: 0.0282 - mean_absolute_error: 0.1332 - keras_pearsonr: 0.7496 - val_loss: 0.0313 - val_mean_absolute_error: 0.1311 - val_keras_pearsonr: 0.4752
+Epoch 30/50
+21s - loss: 0.0281 - mean_absolute_error: 0.1328 - keras_pearsonr: 0.7538 - val_loss: 0.0326 - val_mean_absolute_error: 0.1354 - val_keras_pearsonr: 0.4766
+Epoch 31/50
+21s - loss: 0.0277 - mean_absolute_error: 0.1319 - keras_pearsonr: 0.7565 - val_loss: 0.0312 - val_mean_absolute_error: 0.1316 - val_keras_pearsonr: 0.4775
+Epoch 32/50
+21s - loss: 0.0274 - mean_absolute_error: 0.1311 - keras_pearsonr: 0.7579 - val_loss: 0.0343 - val_mean_absolute_error: 0.1360 - val_keras_pearsonr: 0.4675
+Epoch 33/50
+21s - loss: 0.0271 - mean_absolute_error: 0.1303 - keras_pearsonr: 0.7620 - val_loss: 0.0310 - val_mean_absolute_error: 0.1307 - val_keras_pearsonr: 0.4767
+Epoch 34/50
+21s - loss: 0.0268 - mean_absolute_error: 0.1295 - keras_pearsonr: 0.7626 - val_loss: 0.0307 - val_mean_absolute_error: 0.1387 - val_keras_pearsonr: 0.4734
+Epoch 35/50
+21s - loss: 0.0263 - mean_absolute_error: 0.1280 - keras_pearsonr: 0.7694 - val_loss: 0.0351 - val_mean_absolute_error: 0.1385 - val_keras_pearsonr: 0.4671
+Epoch 36/50
+21s - loss: 0.0262 - mean_absolute_error: 0.1278 - keras_pearsonr: 0.7699 - val_loss: 0.0334 - val_mean_absolute_error: 0.1340 - val_keras_pearsonr: 0.4728
+Epoch 37/50
+21s - loss: 0.0260 - mean_absolute_error: 0.1275 - keras_pearsonr: 0.7729 - val_loss: 0.0307 - val_mean_absolute_error: 0.1387 - val_keras_pearsonr: 0.4745
+Epoch 38/50
+21s - loss: 0.0257 - mean_absolute_error: 0.1266 - keras_pearsonr: 0.7772 - val_loss: 0.0311 - val_mean_absolute_error: 0.1414 - val_keras_pearsonr: 0.4743
+Epoch 39/50
+21s - loss: 0.0255 - mean_absolute_error: 0.1260 - keras_pearsonr: 0.7799 - val_loss: 0.0351 - val_mean_absolute_error: 0.1478 - val_keras_pearsonr: 0.4668
+Epoch 40/50
+21s - loss: 0.0249 - mean_absolute_error: 0.1252 - keras_pearsonr: 0.7826 - val_loss: 0.0314 - val_mean_absolute_error: 0.1392 - val_keras_pearsonr: 0.4774
+Epoch 41/50
+21s - loss: 0.0252 - mean_absolute_error: 0.1251 - keras_pearsonr: 0.7847 - val_loss: 0.0337 - val_mean_absolute_error: 0.1445 - val_keras_pearsonr: 0.4734
+Epoch 42/50
+21s - loss: 0.0248 - mean_absolute_error: 0.1242 - keras_pearsonr: 0.7893 - val_loss: 0.0314 - val_mean_absolute_error: 0.1409 - val_keras_pearsonr: 0.4777
+Epoch 43/50
+21s - loss: 0.0245 - mean_absolute_error: 0.1234 - keras_pearsonr: 0.7912 - val_loss: 0.0304 - val_mean_absolute_error: 0.1382 - val_keras_pearsonr: 0.4783
+Epoch 44/50
+22s - loss: 0.0243 - mean_absolute_error: 0.1228 - keras_pearsonr: 0.7911 - val_loss: 0.0318 - val_mean_absolute_error: 0.1417 - val_keras_pearsonr: 0.4799
+Epoch 45/50
+22s - loss: 0.0235 - mean_absolute_error: 0.1209 - keras_pearsonr: 0.7954 - val_loss: 0.0353 - val_mean_absolute_error: 0.1477 - val_keras_pearsonr: 0.4694
+Epoch 46/50
+22s - loss: 0.0237 - mean_absolute_error: 0.1214 - keras_pearsonr: 0.7977 - val_loss: 0.0313 - val_mean_absolute_error: 0.1414 - val_keras_pearsonr: 0.4767
+Epoch 47/50
+22s - loss: 0.0232 - mean_absolute_error: 0.1199 - keras_pearsonr: 0.8011 - val_loss: 0.0308 - val_mean_absolute_error: 0.1382 - val_keras_pearsonr: 0.4788
+Epoch 48/50
+22s - loss: 0.0228 - mean_absolute_error: 0.1188 - keras_pearsonr: 0.8059 - val_loss: 0.0308 - val_mean_absolute_error: 0.1371 - val_keras_pearsonr: 0.4802
+Epoch 49/50
+22s - loss: 0.0229 - mean_absolute_error: 0.1192 - keras_pearsonr: 0.8069 - val_loss: 0.0316 - val_mean_absolute_error: 0.1411 - val_keras_pearsonr: 0.4758
+Epoch 50/50
+22s - loss: 0.0227 - mean_absolute_error: 0.1183 - keras_pearsonr: 0.8086 - val_loss: 0.0331 - val_mean_absolute_error: 0.1453 - val_keras_pearsonr: 0.4727
+2017-05-06 13:57:21,876: INFO: mean squared error: 0.033, mean absolute error: 0.145, pearsonr: 0.726
