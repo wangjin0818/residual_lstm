@@ -29,9 +29,9 @@ from utils import keras_pearsonr
 
 # maxlen = 56
 batch_size = 32
-nb_epoch = 20
+nb_epoch = 10
 hidden_dim = 120
-lstm_layer = 1
+lstm_layer = 2
 
 def get_idx_from_sent(sent, word_idx_map):
     """

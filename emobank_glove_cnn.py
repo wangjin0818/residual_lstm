@@ -29,7 +29,7 @@ from utils import keras_pearsonr
 
 # maxlen = 56
 batch_size = 32
-nb_epoch = 20
+nb_epoch = 10
 hidden_dim = 120
 lstm_layer = 1
 

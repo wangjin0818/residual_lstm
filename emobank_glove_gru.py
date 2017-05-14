@@ -8,7 +8,7 @@ import logging
 import pickle
 import numpy as np
 
-from keras.models import Sequential, Model
+from keras.models import Sequential
 from keras.layers.core import Dense, Dropout, Activation, Flatten
 from keras.layers.embeddings import Embedding
 # from keras.layers.convolutional import Convolution1D, MaxPooling1D
@@ -17,9 +17,8 @@ from keras.layers.recurrent import LSTM, GRU
 from keras.regularizers import l2
 from keras.layers.advanced_activations import PReLU
 from keras.preprocessing import sequence
-from keras.layers import Input
+from keras.layers import Input, merge
 from keras.optimizers import RMSprop, Adagrad, Adadelta
-from keras.layers.merge import concatenate
 
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import mean_absolute_error
@@ -32,7 +31,7 @@ from utils import keras_pearsonr
 batch_size = 32
 nb_epoch = 10
 hidden_dim = 120
-lstm_layer = 2
+lstm_layer = 1
 
 def get_idx_from_sent(sent, word_idx_map):
     """
@@ -105,43 +104,21 @@ if __name__ == '__main__':
     logging.info("dimension num of word vector [num_features]: %d" % num_features)
 
     # Keras Model
-    sequence = Input(shape=(maxlen, ), dtype='int32')
+    model = Sequential()
+    # Embedding layer (lookup table of trainable word vectors)
+    model.add(Embedding(input_dim=max_features, output_dim=num_features, input_length=maxlen, mask_zero=True, weights=[W], trainable=False))
+    model.add(Dropout(0.25))
 
-    embedded = Embedding(input_dim=max_features, output_dim=num_features, input_length=maxlen, mask_zero=True, weights=[W], trainable=False) (sequence)
-    embedded = Dropout(0.25) (embedded)
+    for i in range(1, lstm_layer):
+        model.add(GRU(hidden_dim, return_sequences=True))
+        model.add(Dropout(0.25))
 
-    if lstm_layer == 1:
-        forwards = LSTM(hidden_dim) (embedded)
-        forwards = Dropout(0.25) (forwards)
+    model.add(GRU(hidden_dim))
+    # model.add(GRU(hidden_dim))
 
-        backwards = LSTM(hidden_dim, go_backwards=True) (embedded)
-        backwards = Dropout(0.25) (backwards)
-    else:
-        forwards = LSTM(hidden_dim, return_sequences=True) (embedded)
-        forwards = Dropout(0.25) (forwards)
-
-        backwards = LSTM(hidden_dim, go_backwards=True, return_sequences=True) (embedded)
-        backwards = Dropout(0.25) (backwards)
-
-        for i in range(2, lstm_layer):
-            forwards = LSTM(hidden_dim, return_sequences=True) (forwards)
-            forwards = Dropout(0.25) (forwards)
-
-            backwards = LSTM(hidden_dim, go_backwards=True, return_sequences=True) (backwards)
-            backwards = Dropout(0.25) (backwards)
-
-        forwards = LSTM(hidden_dim) (forwards)
-        forwards = Dropout(0.25) (forwards)
-
-        backwards = LSTM(hidden_dim, go_backwards=True) (backwards)
-        backwards = Dropout(0.25) (backwards)
-
-    merged = concatenate([forwards, backwards], axis=-1)
-    lstm = Dropout(0.25) (merged)
-
-    output = Dense(1, activation='linear') (lstm)
-
-    model = Model(inputs=sequence, outputs=output)
+    # We project onto a single unit output layer, and squash it with a sigmoid:
+    model.add(Dense(1))
+    model.add(Activation('linear'))
 
     optimizer = Adadelta(lr=1.0)
     model.compile(loss='mean_squared_error', optimizer=optimizer, metrics=['mae', keras_pearsonr])

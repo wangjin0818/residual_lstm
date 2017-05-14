@@ -97,7 +97,7 @@ if __name__ == '__main__':
     logging.root.setLevel(level=logging.INFO)
     logger.info(r"running %s" % ''.join(sys.argv))
 
-    emobank_file = os.path.join('corpus', 'emobank', 'reader_intensity.tsv')
+    emobank_file = os.path.join('corpus', 'emobank', 'writer_intensity.tsv')
     emobank_df = pd.read_table(emobank_file, header=None, sep='\t', quoting=3)
     text, intensity = [], []
     for i in range(len(emobank_df[0])):
@@ -129,7 +129,7 @@ if __name__ == '__main__':
     W, word_idx_map = get_W(w2v, k=model.vector_size)
     logging.info('extracted index from word2vec! ')
 
-    pickle_file = os.path.join('pickle', 'emobank_reader_glove.pickle3')
+    pickle_file = os.path.join('pickle', 'emobank_writer_glove.pickle3')
     pickle.dump([revs, W, word_idx_map, vocab, max_l], open(pickle_file, 'wb'))
     logging.info('dataset created!')
 

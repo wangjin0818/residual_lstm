@@ -27,9 +27,9 @@ from scipy.stats import pearsonr
 
 maxlen = 56
 batch_size = 32
-nb_epoch = 50
+nb_epoch = 10
 hidden_dim = 120
-lstm_layer = 2
+lstm_layer = 1
 
 def get_idx_from_sent(sent, word_idx_map):
     """
@@ -142,7 +142,7 @@ if __name__ == '__main__':
     output = Dense(1, activation='linear') (lstm)
 
     model = Model(input=sequence, output=output)
-    optimizer = Adagrad(lr=0.001)
+    optimizer = Adadelta()
     model.compile(loss='mean_squared_error', optimizer=optimizer, metrics=['mae'])
 
     model.fit(X_train, y_train, validation_data=[X_valid, y_valid], batch_size=batch_size, nb_epoch=nb_epoch, verbose=2)
