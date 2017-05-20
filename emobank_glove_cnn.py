@@ -29,7 +29,7 @@ from utils import keras_pearsonr
 
 # maxlen = 56
 batch_size = 32
-nb_epoch = 10
+nb_epoch = 20
 hidden_dim = 120
 lstm_layer = 1
 
@@ -86,7 +86,7 @@ if __name__ == '__main__':
     logger.info(r"running %s" % ''.join(sys.argv))
 
     logging.info('loading data...')
-    pickle_file = os.path.join('pickle', 'emobank_reader_glove.pickle3')
+    pickle_file = os.path.join('pickle', 'emobank_writer_glove.pickle3')
     revs, W, word_idx_map, vocab, maxlen = pickle.load(open(pickle_file, 'rb'))
     logging.info('data loaded!')
 

@@ -9,7 +9,7 @@ import pickle
 import numpy as np
 
 from keras.models import Model
-from keras.layers.core import Dense, Dropout, Activation, Flatten, Merge
+from keras.layers.core import Dense, Dropout, Activation, Flatten
 from keras.layers.embeddings import Embedding
 # from keras.layers.convolutional import Convolution1D, MaxPooling1D
 from keras.optimizers import SGD, Adadelta
@@ -17,8 +17,9 @@ from keras.layers.recurrent import LSTM, GRU
 from keras.regularizers import l2
 from keras.layers.advanced_activations import PReLU
 from keras.preprocessing import sequence
-from keras.layers import Input, merge
+from keras.layers import Input
 from keras.optimizers import RMSprop, Adagrad
+from keras.layers.merge import concatenate
 
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import mean_absolute_error
@@ -29,7 +30,7 @@ maxlen = 56
 batch_size = 32
 nb_epoch = 10
 hidden_dim = 120
-lstm_layer = 1
+lstm_layer = 8
 
 def get_idx_from_sent(sent, word_idx_map):
     """
@@ -83,8 +84,8 @@ if __name__ == '__main__':
     logger.info(r"running %s" % ''.join(sys.argv))
 
     logging.info('loading data...')
-    pickle_file = os.path.join('pickle', 'sst_glove.pickle')
-    revs, W, word_idx_map, vocab = cPickle.load(open(pickle_file, 'rb'))
+    pickle_file = os.path.join('pickle', 'sst_glove.pickle3')
+    revs, W, word_idx_map, vocab = pickle.load(open(pickle_file, 'rb'))
     logging.info('data loaded!')
 
     X_train, X_test, X_valid, y_train, y_test, y_valid = make_idx_data(revs, word_idx_map)
@@ -136,16 +137,16 @@ if __name__ == '__main__':
         backwards = LSTM(hidden_dim, go_backwards=True) (backwards)
         backwards = Dropout(0.25) (backwards)
 
-    merged = merge([forwards, backwards], mode='concat', concat_axis=-1)
+    merged = concatenate([forwards, backwards], axis=-1)
     lstm = Dropout(0.25) (merged)
 
     output = Dense(1, activation='linear') (lstm)
 
-    model = Model(input=sequence, output=output)
+    model = Model(inputs=sequence, outputs=output)
     optimizer = Adadelta()
     model.compile(loss='mean_squared_error', optimizer=optimizer, metrics=['mae'])
 
-    model.fit(X_train, y_train, validation_data=[X_valid, y_valid], batch_size=batch_size, nb_epoch=nb_epoch, verbose=2)
+    model.fit(X_train, y_train, validation_data=[X_valid, y_valid], batch_size=batch_size, epochs=nb_epoch, verbose=2)
     y_pred = model.predict(X_test, batch_size=batch_size).flatten()
 
     mse = mean_squared_error(y_test, y_pred)

@@ -5,11 +5,11 @@ from __future__ import absolute_import
 import os
 import sys
 import logging
-import cPickle
+import pickle
 import numpy as np
 
 from keras.models import Model
-from keras.layers.core import Dense, Dropout, Activation, Flatten, Merge
+from keras.layers.core import Dense, Dropout, Activation, Flatten
 from keras.layers.embeddings import Embedding
 from keras.layers.convolutional import Convolution1D, MaxPooling1D
 from keras.optimizers import SGD, Adadelta
@@ -23,6 +23,7 @@ from sklearn.metrics import mean_squared_error
 from sklearn.metrics import mean_absolute_error
 from scipy.stats import pearsonr
 
+from utils import keras_pearsonr
 
 maxlen = 56
 batch_size = 32
@@ -77,8 +78,8 @@ if __name__ == '__main__':
     logger.info(r"running %s" % ''.join(sys.argv))
 
     logging.info('loading data...')
-    pickle_file = os.path.join('pickle', 'sst_glove.pickle')
-    revs, W, word_idx_map, vocab = cPickle.load(open(pickle_file, 'rb'))
+    pickle_file = os.path.join('pickle', 'sst_glove.pickle3')
+    revs, W, word_idx_map, vocab = pickle.load(open(pickle_file, 'rb'))
     logging.info('data loaded!')
 
     X_train, X_test, y_train, y_test, class_list = make_idx_data(revs, word_idx_map)
@@ -107,14 +108,14 @@ if __name__ == '__main__':
     embedded = Dropout(0.25) (embedded)
 
     # convolutional layer
-    convolution = Convolution1D(nb_filter=nb_filter,
-                            filter_length=kernel_size,
-                            border_mode='valid',
+    convolution = Convolution1D(filters=nb_filter,
+                            kernel_size=kernel_size,
+                            padding='valid',
                             activation='relu',
-                            subsample_length=1
+                            strides=1
                             ) (embedded)
 
-    maxpooling = MaxPooling1D(pool_length=2) (convolution)
+    maxpooling = MaxPooling1D(pool_size=2) (convolution)
     maxpooling = Flatten() (maxpooling)
 
     # We add a vanilla hidden layer:
@@ -123,14 +124,14 @@ if __name__ == '__main__':
     dense = Activation('relu') (dense)
 
     output = Dense(1, activation='linear') (dense)
-    model = Model(input=sequence, output=output)
+    model = Model(inputs=sequence, outputs=output)
 
-    model.compile(loss='mean_squared_error', optimizer='adadelta')
+    model.compile(loss='mean_squared_error', optimizer='adadelta', metrics=['mae', keras_pearsonr])
 
-    model.fit(X_train, y_train, batch_size=batch_size, nb_epoch=nb_epoch, verbose=2)
+    model.fit(X_train, y_train, validation_data=[X_test, y_test], batch_size=batch_size, epochs=nb_epoch, verbose=2)
     y_pred = model.predict(X_test, batch_size=batch_size).flatten()
 
-    print(y_pred)
+    # print(y_pred)
     mse = mean_squared_error(y_test, y_pred)
     mae = mean_absolute_error(y_test, y_pred)
     r = pearsonr(y_test, y_pred)[0]

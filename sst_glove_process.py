@@ -62,7 +62,7 @@ def build_data_train_test(x_train, x_test, x_valid, y_train_valence, y_test_vale
 
     return revs, vocab
 
-def load_bin_vec(model, vocab, k=embedding_dim):
+def load_bin_vec(model, vocab):
     word_vecs = {}
     unk_words = 0
 
